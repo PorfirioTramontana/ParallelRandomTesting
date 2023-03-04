@@ -2,6 +2,8 @@ name: Parallel Random Testing
  
 on:  
   workflow_dispatch
+env: 
+   name_file: $(ls /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/*.jar)
 jobs: 
   tests:
     runs-on: ubuntu-latest
@@ -20,11 +22,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Jar
-      run: |
-            #!/bin/bash
-             name_file=$(ls /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/*.jar)
-             echo "name_file=$name_file" >> $GITHUB_ENV
+    #- name: Jar
+     # run: |
+      #      #!/bin/bash
+       #      name_file=$(ls /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/*.jar)
+        #     echo "name_file=$name_file" >> $GITHUB_ENV
     - name: Download Randoop and Emma
       run: |
             wget https://github.com/randoop/randoop/releases/download/v3.0.6/randoop-all-3.0.6.jar -P /home/runner/work/ParallelRandomTesting/ParallelRandomTesting
