@@ -24,7 +24,8 @@ jobs:
         java-version: 1.8
     - name: Get the version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      run: echo "ref=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
       
     - name: Download Randoop and Emma
       run: |
