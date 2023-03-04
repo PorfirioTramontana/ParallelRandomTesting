@@ -4,9 +4,11 @@ on:
   workflow_dispatch:
    inputs:
        JarName:
+         description: "Insert jar file name"
          default: "pana"
        CoverageValue:
-         default: "70"
+         description: "Insert coverage limit"
+         default: "60"
 env: 
    name_file: ${{ github.event.inputs.JarName }}
    coverage_value: ${{ github.event.inputs.CoverageValue }}
@@ -322,6 +324,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: main.yml
+        inputs: '{ "JarName": "$name_file", "CoverageValue": "$coverage_value" }'
         
 
 
