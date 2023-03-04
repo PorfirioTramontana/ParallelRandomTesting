@@ -6,7 +6,7 @@ on:
        JarName:
          default: "pana"
 env: 
-   name_file: ${{ JarName }}
+   name_file: ${{ github.event.inputs.JarName }}
 jobs: 
   tests:
     runs-on: ubuntu-latest
