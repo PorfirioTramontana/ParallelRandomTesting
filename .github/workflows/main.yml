@@ -3,7 +3,7 @@ name: Parallel Random Testing
 on:  
   workflow_dispatch
 env:
-  name_file: saxpath
+  name_file: nicolino
 jobs: 
   tests:
     runs-on: ubuntu-latest
