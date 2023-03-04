@@ -9,9 +9,13 @@ on:
        CoverageValue:
          description: "Insert coverage limit"
          default: "60"
+       TimeLimit:
+         description: "Insert time limit for each test session"
+         default: "20"
 env: 
    name_file: ${{ github.event.inputs.JarName }}
    coverage_value: ${{ github.event.inputs.CoverageValue }}
+   time_limit: ${{ github.event.inputs.TimeLimit }}
 jobs: 
   tests:
     runs-on: ubuntu-latest
@@ -55,7 +59,7 @@ jobs:
             java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar emma instr -m fullcopy -d /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp -ip /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/${{ env.name_file }}.jar -out coverage_$timestamp/coverage_$timestamp.em
 
             #Randoop
-            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/lib/${{ env.name_file }}.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/randoop-all-3.0.6.jar randoop.main.Main gentests --classlist=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/lista.txt --timelimit=5 --randomseed=${{ env.randseed }} --no-regression-tests=true --junit-output-dir=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
+            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/lib/${{ env.name_file }}.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/randoop-all-3.0.6.jar randoop.main.Main gentests --classlist=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/lista.txt --timelimit=${{ env.time_limit }} --randomseed=${{ env.randseed }} --no-regression-tests=true --junit-output-dir=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
             
             cp coverage.ec /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/coverage_$timestamp.ec
             rm coverage.ec
@@ -312,8 +316,7 @@ jobs:
              echo "bool=$bool" >> $GITHUB_ENV
            fi
            
-    - if: ${{ env.bool == 1}}
-      uses: stefanzweifel/git-auto-commit-action@v4
+    - uses: stefanzweifel/git-auto-commit-action@v4
       with: 
         commit_message: Changed files
         file_pattern: merge/*
