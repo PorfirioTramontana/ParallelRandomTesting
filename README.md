@@ -5,6 +5,7 @@ GitHub Actions per il testing parallelo randomico di classi java utilizzando ran
 
 ## Utilizzo
 
+- Cancellare (se presente) la cartella "merge/coverage" dalla repository.
 - Carica il file .jar nella repository all' interno della directory "jars".
 - Modifica il file "lista.txt" inserendo il nome delle classi da testare.
 - Runnare il workflow manualmente dalla sezione "Action"(se è la prima esecuzione assicurarsi di aver correttamente eliminato la cartella merge/coverage).
