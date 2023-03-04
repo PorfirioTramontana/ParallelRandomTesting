@@ -3,10 +3,10 @@ name: Parallel Random Testing
 on:  
   workflow_dispatch:
    inputs:
-       myInput:
-         default: "my input value"
+       JarName:
+         default: "pana"
 env: 
-   name_file: $myInput
+   name_file: ${{ on.workflow_dispatch.inputs.JarName }}
 jobs: 
   tests:
     runs-on: ubuntu-latest
