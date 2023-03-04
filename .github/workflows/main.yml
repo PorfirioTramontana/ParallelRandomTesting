@@ -5,8 +5,11 @@ on:
    inputs:
        JarName:
          default: "pana"
+       CoverageValue:
+         default: "70"
 env: 
    name_file: ${{ github.event.inputs.JarName }}
+   coverage_value: ${{ github.event.inputs.CoverageValue }}
 jobs: 
   tests:
     runs-on: ubuntu-latest
@@ -299,7 +302,7 @@ jobs:
            #!/bin/bash
            value=$(echo "${{env.MY_VAR}}" | awk '{match($0, /[0-9]+/); print substr($0, RSTART, RLENGTH)}')
            echo "value=$value" >> $GITHUB_ENV
-           if (($value < 56)); then
+           if (($value < ${{ env.coverage_value }})); then
              bool=1
              echo "bool=$bool" >> $GITHUB_ENV
            else
