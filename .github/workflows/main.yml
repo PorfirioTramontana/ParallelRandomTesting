@@ -36,8 +36,8 @@ jobs:
     - name: Random seed
       run: |
             #!/bin/bash
-             randseed_${{ matrix.ci_node_index }}=$((1 + RANDOM % 99999))
-             echo "randseed_${{ matrix.ci_node_index }}=$randseed_${{ matrix.ci_node_index }}" >> $GITHUB_ENV
+             randseed=$((1 + RANDOM % 99999))
+             echo "randseed=$randseed" >> $GITHUB_ENV
     - name: Run emma and randoop
       run: |
             #!/bin/bash
@@ -50,7 +50,7 @@ jobs:
             java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar emma instr -m fullcopy -d /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp -ip /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/${{ env.name_file }}.jar -out coverage_$timestamp/coverage_$timestamp.em
 
             #Randoop
-            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/lib/${{ env.name_file }}.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/randoop-all-3.0.6.jar randoop.main.Main gentests --classlist=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/lista.txt --timelimit=20 --randomseed=${{ env.randseed_timestamp }} --no-regression-tests=true --junit-output-dir=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
+            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/lib/${{ env.name_file }}.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/randoop-all-3.0.6.jar randoop.main.Main gentests --classlist=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/lista.txt --timelimit=20 --randomseed=${{ env.randseed }} --no-regression-tests=true --junit-output-dir=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
             
             cp coverage.ec /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/coverage_$timestamp.ec
             rm coverage.ec
