@@ -17,9 +17,9 @@ GitHub Actions per il testing parallelo randomico di classi java utilizzando ran
 
 L' action genera nella repository la cartella merge/coverage, in cui sono presenti i file di coverage, ottenuti dal merge delle sessioni parallele e il merge con il risultato della precedente esecuzione
 
-Al termine di ogni esecuzione GitHub Action saranno creati 2 Artifacts(Si trovano in basso nella sezione summary).
-- Emma Reports, che contiene le cartelle "coverage_?", in cui sono presenti i report parziali "coverage_?.html" delle singole sessioni e i test generati che trovano un fallimento.
-- Coverage, che contiene il report "coveragemerge.html" finale sulla copertura di tutti i test eseguiti.
+Al termine di ogni esecuzione del workflow saranno creati 2 Artifacts( consultabili in basso nella sezione summary ).
+- Emma Reports, che contiene le cartelle "coverage_?", in cui sono presenti i report parziali delle singole sessioni e i test generati che trovano un fallimento.
+- Coverage, che contiene il report finale sulla copertura di tutti i test eseguiti fino alla data esecuzione.
 
 Cliccando sugli Artifacts vengono scaricati i .zip.
 
@@ -36,4 +36,4 @@ Cliccando sugli Artifacts vengono scaricati i .zip.
 
 ### Note
 
-A causa di alcuni problemi di comunicazione della piattaforma GitHub con GitHubGist, su cui vengono memorizzati i badge, gli stessi potrebbero non risultare aggiornati subito dopo l' esecuzione del workflow. Per visualizzare correttamente i valori di coverage si consiglia di attendere qualche minuto e riaggiornare la pagina della repository
+A causa di alcuni problemi di comunicazione della piattaforma GitHub con GitHubGist, su cui vengono memorizzati i badge, gli stessi potrebbero non risultare aggiornati subito dopo l' esecuzione del workflow. Per visualizzare correttamente i valori di coverage si consiglia di attendere qualche minuto e riaggiornare la pagina della repository.
