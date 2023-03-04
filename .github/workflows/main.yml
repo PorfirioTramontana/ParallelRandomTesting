@@ -5,7 +5,7 @@ on:
    inputs:
        JarName:
          description: "Insert jar file name"
-         default: "pana"
+         default: "saxpath"
        CoverageValue:
          description: "Insert coverage limit"
          default: "60"
