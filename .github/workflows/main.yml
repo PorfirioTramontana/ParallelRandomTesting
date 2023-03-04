@@ -25,11 +25,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    #- name: Jar
-     # run: |
-      #      #!/bin/bash
-       #      name_file=$(ls /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/*.jar)
-        #     echo "name_file=$name_file" >> $GITHUB_ENV
     - name: Download Randoop and Emma
       run: |
             wget https://github.com/randoop/randoop/releases/download/v3.0.6/randoop-all-3.0.6.jar -P /home/runner/work/ParallelRandomTesting/ParallelRandomTesting
@@ -52,10 +47,10 @@ jobs:
             mkdir /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
             
             #Instr emma
-            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar emma instr -m fullcopy -d /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp -ip /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/${{ env.name_file }} -out coverage_$timestamp/coverage_$timestamp.em
+            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar emma instr -m fullcopy -d /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp -ip /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/jars/${{ env.name_file }}.jar -out coverage_$timestamp/coverage_$timestamp.em
 
             #Randoop
-            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/lib/${{ env.name_file }}:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/randoop-all-3.0.6.jar randoop.main.Main gentests --classlist=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/lista.txt --timelimit=20 --randomseed=${{ env.randseed_timestamp }} --no-regression-tests=true --junit-output-dir=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
+            java -noverify -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/lib/${{ env.name_file }}.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar:/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/randoop-all-3.0.6.jar randoop.main.Main gentests --classlist=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/lista.txt --timelimit=20 --randomseed=${{ env.randseed_timestamp }} --no-regression-tests=true --junit-output-dir=/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp
             
             cp coverage.ec /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$timestamp/coverage_$timestamp.ec
             rm coverage.ec
