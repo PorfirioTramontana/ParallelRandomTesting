@@ -127,8 +127,6 @@ jobs:
             #controllo se esiste coveragemerge
             if test -f "/home/runner/work/ParallelRandomTesting/ParallelRandomTesting/merge/coverage/coveragemerge.es"; then
               java -classpath /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/emma-2.0.5312/lib/emma.jar emma merge -in /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$((count))/coverage_$((count)).es,merge/coverage/coveragemerge.es -out merge/coverage/coveragemerge.es
-              echo "effettuato merge finale"
-              echo $count
               cp merge/coverage/coveragemerge.es  /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coveragemerge.es
             else
               cp /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coverage_$((count))/coverage_$((count)).es /home/runner/work/ParallelRandomTesting/ParallelRandomTesting/coveragemerge.es
