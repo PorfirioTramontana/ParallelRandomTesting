@@ -25,13 +25,13 @@ Cliccando sugli Artifacts vengono scaricati i .zip.
 
 ## COVERAGE
 
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting__.json)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting__.json)
 
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting2__.json)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting2__.json)
 
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting3__.json)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting3__.json)
 
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting4__.json)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/PorfirioTramontana/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/raw/ParallelRandomTesting4__.json)
 
 
 ### Note
