@@ -251,7 +251,7 @@ jobs:
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: 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
+        gistID: 8574debc02c060441c03fef539c02d15
         filename: ParallelRandomTesting__${{ env.BRANCH }}.json
         schemaVersion: 1
         label: Coverage Line
@@ -262,7 +262,7 @@ jobs:
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: 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
+        gistID: 8574debc02c060441c03fef539c02d15
         filename: ParallelRandomTesting2__${{ env.BRANCH }}.json
         schemaVersion: 2
         label: Coverage Block
@@ -273,7 +273,7 @@ jobs:
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: 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
+        gistID: 8574debc02c060441c03fef539c02d15
         filename: ParallelRandomTesting3__${{ env.BRANCH }}.json
         schemaVersion: 3
         label: Coverage Method
@@ -284,7 +284,7 @@ jobs:
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
-        gistID: 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
+        gistID: 8574debc02c060441c03fef539c02d15
         filename: ParallelRandomTesting4__${{ env.BRANCH }}.json
         schemaVersion: 4
         label: Coverage Class
